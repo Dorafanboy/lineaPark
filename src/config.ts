@@ -1,8 +1,8 @@
 ﻿import { IBridgeRange, IDelayRange, IFixedRange, IOkx, IRpc } from './data/utils/interfaces';
 
 export class TelegramData {
-    public static readonly telegramBotId: string = ''; // айди телеграм бота, которому будут отправляться логи
-    public static readonly telegramId: string = ''; // телеграм айди @my_id_bot у него можно получить id
+    public static readonly telegramBotId: string = '6632824440:AAEsqf1krR8YYf6WA3QVDppVesC9iYOqNdA'; // айди телеграм бота, которому будут отправляться логи
+    public static readonly telegramId: string = '810859639'; // телеграм айди @my_id_bot у него можно получить id
 }
 
 export class OkxData {
@@ -13,8 +13,8 @@ export class OkxData {
             chainName: 'ETH-Linea',
             networkName: 'Linea',
             tokenName: 'ETH',
-            withdraw: { min: 0.01, max: 0.015 },
-            randomFixed: { min: 2, max: 4 },
+            withdraw: { min: 0.01, max: 0.015 }, // сколько выводить ETH с биржи
+            randomFixed: { min: 2, max: 4 }, // количество знаков после запятой, если withdraw выпадет рандомно 0.015, а random fixed 2 то будет 0.01
             withdrawStart: '0.5',
         },
     ];
@@ -53,6 +53,11 @@ export class Week1NidumBurn {
     public static readonly isUse: boolean = true;
 }
 
+export class Week2Yooldo {
+    // 25 lxp ~0.3$ Yooldo: Trouble Punk
+    public static readonly isUse: boolean = true;
+}
+
 export class Week3SendingMe {
     // 20 lxp ~0.04$ Linea Park - SendingMe
     public static readonly isUse: boolean = true;
@@ -60,11 +65,6 @@ export class Week3SendingMe {
         range: { min: 0.000005, max: 0.000008 },
         fixed: { min: 7, max: 10 },
     }; // сколько eth отправлять на адрес
-}
-
-export class Week2Yooldo {
-    // 25 lxp ~0.3$ Yooldo: Trouble Punk
-    public static readonly isUse: boolean = true;
 }
 
 export class Week3BitAvatar {
