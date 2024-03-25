@@ -12,14 +12,15 @@
 1. Week1GamerBoomSignProof - https://layer3.xyz/quests/linea-gamerboom
 2. Week1GamerBoomMintNFT - https://layer3.xyz/quests/linea-gamerboom
 3. Week1NidumBatch - https://layer3.xyz/quests/linea-sidus
-4. Week2Yooldo - https://layer3.xyz/quests/linea-yooldo
-5. Week3SendingMe - https://layer3.xyz/quests/linea-sending-me 
-6. Week3BitAvatar - https://layer3.xyz/quests/linea-bitavatar
-7. Week3ReadOn - https://layer3.xyz/quests/linea-readon
-8. Week3GamicHub - https://layer3.xyz/quests/linea-gamic-app
-9. Week3Dmail - https://layer3.xyz/quests/linea-dmail
-10. Week4LuckyCat - https://layer3.xyz/quests/linea-timeless-wallet
-11. Week5Omnizone - https://layer3./quests/linea-brototype
-12. Week5Battlemon - https://layer3.xyz/quests/linea-battlemon
+4. Week1NidumBurn - https://layer3.xyz/quests/linea-sidus
+5. Week2Yooldo - https://layer3.xyz/quests/linea-yooldo
+6. Week3SendingMe - https://layer3.xyz/quests/linea-sending-me 
+7. Week3BitAvatar - https://layer3.xyz/quests/linea-bitavatar
+8. Week3ReadOn - https://layer3.xyz/quests/linea-readon
+9. Week3GamicHub - https://layer3.xyz/quests/linea-gamic-app
+10. Week3Dmail - https://layer3.xyz/quests/linea-dmail
+11. Week4LuckyCat - https://layer3.xyz/quests/linea-timeless-wallet
+12. Week5Omnizone - https://layer3./quests/linea-brototype
+13. Week5Battlemon - https://layer3.xyz/quests/linea-battlemon
 
 Со всех квестов выходиит 370 LXP.
