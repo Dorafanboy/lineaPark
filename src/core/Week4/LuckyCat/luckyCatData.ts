@@ -1,0 +1,1 @@
+﻿export const catContractAddress = '0xc577018b3518cd7763d143d7699b280d6e50fdb6'

@@ -1,0 +1,1 @@
+﻿export const checkInContractAddress = '0x37d4bfc8c583d297a0740d734b271eac9a88ade4'

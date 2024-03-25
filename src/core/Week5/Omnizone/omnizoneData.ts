@@ -1,0 +1,1 @@
+﻿export const omnizoneContractAddress = '0x7136abb0fa3d88e4b4d4ee58fc1dfb8506bb7de7'

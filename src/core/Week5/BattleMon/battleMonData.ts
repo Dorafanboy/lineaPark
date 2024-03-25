@@ -1,0 +1,1 @@
+﻿export const battleMonContractAddress = '0x578705c60609c9f02d8b7c1d83825e2f031e35aa'
