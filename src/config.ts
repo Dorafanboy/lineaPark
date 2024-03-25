@@ -1,8 +1,8 @@
 ﻿import { IBridgeRange, IDelayRange, IFixedRange, IOkx, IRpc } from './data/utils/interfaces';
 
 export class TelegramData {
-    public static readonly telegramBotId: string = '6632824440:AAEsqf1krR8YYf6WA3QVDppVesC9iYOqNdA'; // айди телеграм бота, которому будут отправляться логи
-    public static readonly telegramId: string = '810859639'; // телеграм айди @my_id_bot у него можно получить id
+    public static readonly telegramBotId: string = ''; // айди телеграм бота, которому будут отправляться логи
+    public static readonly telegramId: string = ''; // телеграм айди @my_id_bot у него можно получить id
 }
 
 export class OkxData {
