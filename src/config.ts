@@ -1,4 +1,4 @@
-﻿import { IBridgeRange, IDelayRange, IFixedRange, IOkx, IRpc } from './data/utils/interfaces';
+﻿import { IBridgeRange, IDelayRange, IFixedRange, IOkx, IRpc, workMode } from './data/utils/interfaces';
 
 export class TelegramData {
     public static readonly telegramBotId: string = ''; // айди телеграм бота, которому будут отправляться логи
@@ -23,6 +23,7 @@ export class OkxData {
 }
 
 export class Config {
+    public static readonly mode: workMode = 'quest'; // если надо режим работы поменять на прохождение POH, то 'POH'
     public static readonly IsShuffleWallets: boolean = true; // перемешивать ли строки в текстовом файле для приватных ключей
     public static readonly retryCount: number = 15; // сколько будет попыток в случае ошибки
     public static readonly delayBetweenAction: IDelayRange = { min: 1, max: 5 }; // задержка между действиями (в секундах) в случае ошибки
@@ -104,5 +105,20 @@ export class Week5Battlemon {
 
 export class Week5Omnizone {
     // 40 lxp ~0.35$ Omnizone Attraction at Linea Park
-    public static readonly isUse: boolean = false;
+    public static readonly isUse: boolean = true;
+}
+
+export class LevelATrusta {
+    // Trusta Group A
+    public static readonly isUse: boolean = true;
+}
+
+export class LevelBTrusta {
+    // Trusta Group B
+    public static readonly isUse: boolean = true;
+}
+
+export class LevelBRubyscore {
+    // Rubyscore Group B
+    public static readonly isUse: boolean = true;
 }

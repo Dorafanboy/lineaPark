@@ -1,4 +1,6 @@
-﻿import { PrivateKeyAccount } from 'viem';
+﻿import { Hex, PrivateKeyAccount } from 'viem';
+
+export type workMode = 'POH' | 'quest';
 
 export interface IBridgeRange {
     readonly min: number;
@@ -33,4 +35,21 @@ export interface IRpc {
 export interface IDmailData {
     readonly to: string;
     readonly amount: string;
+}
+
+export interface IRubyScoreData {
+    attestationParams: {
+        schemaId: string;
+        expirationDate: number;
+        subject: string;
+        attestationData: string;
+    };
+    signature: string;
+}
+
+export type attestType = 'media' | 'humanity';
+
+export interface ITrustaData {
+    readonly calldata: Hex;
+    readonly score: number;
 }

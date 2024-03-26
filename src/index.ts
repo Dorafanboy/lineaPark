@@ -19,6 +19,9 @@ import {
     Week4LuckyCat,
     Week5Battlemon,
     Week5Omnizone,
+    LevelATrusta,
+    LevelBRubyscore,
+    LevelBTrusta,
 } from './config';
 import {
     addTextMessage,
@@ -41,6 +44,8 @@ import { wrapETH } from './core/Week3/GamicHub/gamicHub';
 import { adoptCat } from './core/Week4/LuckyCat/luckyCat';
 import { safeMint } from './core/Week5/BattleMon/battleMon';
 import { mintOmnizone } from './core/Week5/Omnizone/omnizone';
+import { getAttestationRubyScore } from './core/POH/RubyScore/rubyScore';
+import { getLevelBAttestation, getLevelAAttestation } from './core/POH/Trusta/trusta';
 
 let account;
 
@@ -50,7 +55,7 @@ const privateKeysPath = fs.createReadStream(privateKeysFilePath);
 const wordsFilePath = path.join(__dirname, 'assets', 'random_words.txt');
 const words = fs.readFileSync(wordsFilePath).toString().split('\n');
 
-const functions: { [key: string]: IFunction } = {
+const questFunctions: { [key: string]: IFunction } = {
     'Week 1 - Gamer Boom Sign Genesis Proof. GamerBoom: Genesis Testing with Linea': {
         func: signGenesisProof,
         isUse: Week1GamerBoomSignProof.isUse,
@@ -79,16 +84,38 @@ const functions: { [key: string]: IFunction } = {
     },
 };
 
-const filteredFunctions = Object.keys(functions)
-    .filter((key) => functions[key].isUse)
-    .map((key) => functions[key].func);
-
-if (filteredFunctions.length == 0) {
-    printError(`Нету модулей для запуска`);
-    throw `No modules`;
-}
+const pohFunctions: { [key: string]: IFunction } = {
+    'Level A - Trusta Attestation': {
+        func: getLevelAAttestation,
+        isUse: LevelATrusta.isUse,
+    },
+    'Level B - Trusta Attestation': {
+        func: getLevelBAttestation,
+        isUse: LevelBTrusta.isUse,
+    },
+    'Level B - Rubyscore Attestation': { func: getAttestationRubyScore, isUse: LevelBRubyscore.isUse },
+};
 
 async function main() {
+    if (Config.mode == 'POH') {
+        printInfo(`Включен режим прохождения POH`);
+        await pohWorkMode();
+    } else if (Config.mode == 'quest') {
+        printInfo(`Включен режим прохождения Quest`);
+        await questWorkMode();
+    }
+}
+
+async function questWorkMode() {
+    const filteredFunctions = Object.keys(questFunctions)
+        .filter((key) => questFunctions[key].isUse)
+        .map((key) => questFunctions[key].func);
+
+    if (filteredFunctions.length == 0) {
+        printError(`Нету модулей для запуска(Quest)`);
+        throw `No modules`;
+    }
+
     const rl = readline.createInterface({
         input: privateKeysPath,
         crlfDelay: Infinity,
@@ -101,7 +128,7 @@ async function main() {
     const count = data.split('\n').length;
     await initializeTelegramBot(TelegramData.telegramBotId, TelegramData.telegramId);
 
-    const keys = Object.keys(functions).filter((key) => functions[key].isUse);
+    const keys = Object.keys(questFunctions).filter((key) => questFunctions[key].isUse);
     const functionsList = keys.join('\n');
 
     printInfo(`Были включены следующие модули:\n${functionsList}`);
@@ -128,13 +155,127 @@ async function main() {
             await withdrawAmount(account.address);
 
             printInfo(`Перемешал модули`);
-            const shuffledFunctions = Object.keys(functions)
+            const shuffledFunctions = Object.keys(questFunctions)
                 .filter(
-                    (key) => functions[key].isUse && key !== 'Week 1 - Sidus Heroes Batch. Claim Nidum Mystery Box 2',
+                    (key) =>
+                        questFunctions[key].isUse && key !== 'Week 1 - Sidus Heroes Batch. Claim Nidum Mystery Box 2',
                 )
                 .sort(() => Math.random() - 0.5);
 
-            const filteredShuffledFunctions = shuffledFunctions.map((key) => functions[key].func);
+            const filteredShuffledFunctions = shuffledFunctions.map((key) => questFunctions[key].func);
+
+            const modulesCount = filteredShuffledFunctions.length;
+
+            for (let i = 0; i < modulesCount; i++) {
+                const func = filteredShuffledFunctions[i];
+
+                const result = await func(account);
+
+                if (i != modulesCount - 1) {
+                    printInfo(`Осталось выполнить ${modulesCount - i - 1} модулей на аккаунте\n`);
+
+                    if (result == true) {
+                        await delay(Config.delayBetweenModules.min, Config.delayBetweenModules.max, true);
+                    } else {
+                        await delay(Config.delayBetweenModules.min, Config.delayBetweenModules.max, false);
+                    }
+                }
+            }
+
+            printSuccess(`Ended [${index + 1}/${count} - ${account.address}]\n`);
+
+            await sendMessage();
+            await resetTextMessage();
+
+            fs.appendFile('assets/completed_accounts.txt', `${line}\n`, 'utf8', (err) => {
+                if (err) {
+                    printError(`Произошла ошибка при записи в файл: ${err}`);
+                }
+            });
+
+            index++;
+
+            if (index == count) {
+                printSuccess(`Все аккаунты отработаны`);
+                rl.close();
+                await stopTelegramBot();
+                return;
+            }
+
+            printInfo(`Ожидаю получение нового аккаунта`);
+            await delay(Config.delayBetweenAccounts.min, Config.delayBetweenAccounts.max, true);
+        } catch (e) {
+            printError(`Произошла ошибка при обработке строки: ${e}\n`);
+
+            await addTextMessage(`❌Аккаунт отработал с ошибкой`);
+            await sendMessage();
+            await resetTextMessage();
+
+            printInfo(`Ожидаю получение нового аккаунта`);
+            await delay(Config.delayBetweenAccounts.min, Config.delayBetweenAccounts.max, true);
+            fs.appendFile('assets/uncompleted_accounts.txt', `${line}\n`, 'utf8', (err) => {
+                if (err) {
+                    printError(`Произошла ошибка при записи в файл: ${err}`);
+                }
+            });
+
+            index++;
+        }
+    }
+}
+
+async function pohWorkMode() {
+    const filteredFunctions = Object.keys(pohFunctions)
+        .filter((key) => pohFunctions[key].isUse)
+        .map((key) => pohFunctions[key].func);
+
+    if (filteredFunctions.length == 0) {
+        printError(`Нету модулей для запуска(POH)`);
+        throw `No modules`;
+    }
+
+    const rl = readline.createInterface({
+        input: privateKeysPath,
+        crlfDelay: Infinity,
+    });
+
+    let index = 0;
+
+    const data = fs.readFileSync(privateKeysFilePath, 'utf8');
+
+    const count = data.split('\n').length;
+    await initializeTelegramBot(TelegramData.telegramBotId, TelegramData.telegramId);
+
+    const keys = Object.keys(pohFunctions).filter((key) => pohFunctions[key].isUse);
+    const functionsList = keys.join('\n');
+
+    printInfo(`Были включены следующие модули:\n${functionsList}`);
+
+    for await (const line of rl) {
+        try {
+            if (line == '') {
+                printError(`Ошибка, пустая строка в файле private_keys.txt`);
+                return;
+            }
+
+            if (Config.IsShuffleWallets) {
+                printInfo(`Произвожу перемешивание только кошельков.`);
+                await shuffleData();
+
+                printSuccess(`Кошельки успешно перемешаны.\n`);
+            }
+
+            account = privateKeyToAccount(<`0x${string}`>line);
+            printInfo(`Start [${index + 1}/${count} - ${account.address}]\n`);
+
+            await addTextMessage(`${index + 1}/${count} - ${account.address}\n`);
+
+            printInfo(`Перемешал модули`);
+            const shuffledFunctions = Object.keys(pohFunctions)
+                .filter((key) => pohFunctions[key].isUse)
+                .sort(() => Math.random() - 0.5);
+
+            const filteredShuffledFunctions = shuffledFunctions.map((key) => pohFunctions[key].func);
 
             const modulesCount = filteredShuffledFunctions.length;
 
