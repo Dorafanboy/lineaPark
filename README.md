@@ -24,4 +24,9 @@
 12. Week5Omnizone - https://layer3./quests/linea-brototype
 13. Week5Battlemon - https://layer3.xyz/quests/linea-battlemon
 
+Также, софт проходит POH 
+1. Trusta Group A.
+2. Trusta Group B.
+3. Rubyscore Group B.
+
 Со всех квестов выходиит 370 LXP.
