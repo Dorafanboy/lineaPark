@@ -6,7 +6,7 @@
 6. Отработанные аккаунты софт записывает в файл completed_accounts.txt(src/assets).
 7. Аккаунты, отработанные с ошибкой запишет в uncompleted_accounts.txt(src/assets).
 8. Пояснение настройки записано в конфиге.
-9. Если необходимо выключить выполнение каких-то квестов isUse вместо true поставить false, или наоборот.
+9. Если необходимо выключить выполнение каких-то квестов/прохождения POH isUse вместо true поставить false, или наоборот.
 10. В конфиге (class Config переменная mode) указать режим работы 'POH' если необходимо проходить POH на аккаунтах или 'quest' для выполенение ончейн транзакций.
 
 Софт выполняет следующие задания (имя класса в конфиге - ссылка на задание из layer 3)
@@ -24,9 +24,9 @@
 12. Week5Omnizone - https://layer3./quests/linea-brototype
 13. Week5Battlemon - https://layer3.xyz/quests/linea-battlemon
 
-Также, софт проходит POH 
-1. Trusta Group A.
-2. Trusta Group B.
-3. Rubyscore Group B.
+Также, софт проходит POH
+1. LevelATrusta - Trusta Group A.
+2. LevelBTrusta - Trusta Group B.
+3. LevelBRubyscore - Rubyscore Group B.
 
 Со всех квестов выходиит 370 LXP.
