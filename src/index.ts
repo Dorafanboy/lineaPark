@@ -1,6 +1,7 @@
 import { privateKeyToAccount } from 'viem/accounts';
 import fs from 'fs';
 import readline from 'readline';
+import * as dotenv from 'dotenv';
 import { printError, printInfo, printSuccess } from './data/logger/logPrinter';
 import { delay } from './data/helpers/delayer';
 import {
@@ -46,6 +47,8 @@ import { safeMint } from './core/Week5/BattleMon/battleMon';
 import { mintOmnizone } from './core/Week5/Omnizone/omnizone';
 import { getAttestationRubyScore } from './core/POH/RubyScore/rubyScore';
 import { getLevelBAttestation, getLevelAAttestation } from './core/POH/Trusta/trusta';
+
+dotenv.config();
 
 let account;
 
