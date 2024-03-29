@@ -13,7 +13,6 @@
     "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
     "node-telegram-bot-api": "^0.61.0",
-    "playwright": "^1.42.1",
     "viem": "^1.19.13",
     "winston": "^3.11.0"
   }

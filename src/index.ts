@@ -23,6 +23,12 @@ import {
     LevelATrusta,
     LevelBRubyscore,
     LevelBTrusta,
+    Week6Acg,
+    Week6Bilinear,
+    Week6FrogWar,
+    Week6FrogWarBonus,
+    Week6Micro3,
+    Week6Zace,
 } from './config';
 import {
     addTextMessage,
@@ -47,6 +53,11 @@ import { safeMint } from './core/Week5/BattleMon/battleMon';
 import { mintOmnizone } from './core/Week5/Omnizone/omnizone';
 import { getAttestationRubyScore } from './core/POH/RubyScore/rubyScore';
 import { getLevelBAttestation, getLevelAAttestation } from './core/POH/Trusta/trusta';
+import { mintAcg } from './core/Week6/AcgWorlds/acgWorlds';
+import { claimBilinear } from './core/Week6/Bilinear/bilinear';
+import { claimFrogWar, claimRebet } from './core/Week6/FrogWar/frogWar';
+import { purchase } from './core/Week6/Micro3/micro3';
+import { zaceCheckIn } from './core/Week6/Zace/zace';
 
 dotenv.config();
 
@@ -84,6 +95,30 @@ const questFunctions: { [key: string]: IFunction } = {
     'Week 5 - Omnizone Safe Mint. Omnizone Attraction at Linea Park': {
         func: mintOmnizone,
         isUse: Week5Omnizone.isUse,
+    },
+    'Week 6 - Mint ACG: ACG WORLDS': {
+        func: mintAcg,
+        isUse: Week6Acg.isUse,
+    },
+    'Week 6 - Claim Bilinear: Bilinear: the zero-fees NFT marketplace': {
+        func: claimBilinear,
+        isUse: Week6Bilinear.isUse,
+    },
+    'Week 6 - Claim Frog War: Frog War': {
+        func: claimFrogWar,
+        isUse: Week6FrogWar.isUse,
+    },
+    'Week 6 - Claim Frog War: Frog War(Bonus)': {
+        func: claimRebet,
+        isUse: Week6FrogWarBonus.isUse,
+    },
+    'Week 6 - Micro3 Purchase: Experience Micro3 Magic: Linea Park Edition': {
+        func: purchase,
+        isUse: Week6Micro3.isUse,
+    },
+    'Week 6 - Zace Check In: zAce': {
+        func: zaceCheckIn,
+        isUse: Week6Zace.isUse,
     },
 };
 
@@ -161,7 +196,9 @@ async function questWorkMode() {
             const shuffledFunctions = Object.keys(questFunctions)
                 .filter(
                     (key) =>
-                        questFunctions[key].isUse && key !== 'Week 1 - Sidus Heroes Batch. Claim Nidum Mystery Box 2',
+                        questFunctions[key].isUse &&
+                        key !== 'Week 1 - Sidus Heroes Batch. Claim Nidum Mystery Box 2' &&
+                        key !== 'Week 6 - Claim Frog War: Frog War(Bonus)',
                 )
                 .sort(() => Math.random() - 0.5);
 

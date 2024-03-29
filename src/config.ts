@@ -108,6 +108,41 @@ export class Week5Omnizone {
     public static readonly isUse: boolean = true;
 }
 
+export class Week6Zace {
+    // 25 lxp ~0.09$ zAce
+    public static readonly isUse: boolean = true;
+}
+
+export class Week6Micro3 {
+    // 25 lxp ~0.09$ Experience Micro3 Magic: Linea Park Edition
+    public static readonly isUse: boolean = true;
+}
+
+export class Week6FrogWar {
+    // 25 lxp ~0.4$ Frog War
+    public static readonly isUse: boolean = true;
+}
+
+export class Week6FrogWarBonusRevokeApproval {
+    // 0.01$, отзывать ли approve для контракта Frog War
+    public static readonly isUse: boolean = true;
+}
+
+export class Week6FrogWarBonus {
+    // 15 lxp ~0.17$ Frog War Bonus
+    public static readonly isUse: boolean = true;
+}
+
+export class Week6Bilinear {
+    // 25 lxp ~0.4$ Bilinear: the zero-fees NFT marketplace
+    public static readonly isUse: boolean = true;
+}
+
+export class Week6Acg {
+    // 25 lxp ~0.4$ ACG WORLDS
+    public static readonly isUse: boolean = true;
+}
+
 export class LevelATrusta {
     // Trusta Group A
     public static readonly isUse: boolean = true;

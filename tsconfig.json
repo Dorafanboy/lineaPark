@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "lib": [
-      "ES6"
+      "ES6", "DOM"
     ],
     "module": "NodeNext",
     "rootDir": "./src",

@@ -14,6 +14,7 @@ import {
     registerAccount,
 } from './nidumRequester';
 import { checkGwei } from '../../../data/helpers/gweiChecker';
+import { delay } from '../../../data/helpers/delayer';
 
 export async function batch(account: PrivateKeyAccount) {
     printInfo(`Выполняю модуль Week1 - Sidus Heroes. Claim Nidum Mystery Box 2`);
@@ -86,7 +87,9 @@ export async function batch(account: PrivateKeyAccount) {
     }
 
     if (Week1NidumBurn.isUse) {
+        await delay(Config.delayBetweenModules.min, Config.delayBetweenModules.max, true);
         await burn(account);
+        return false;
     }
 
     return true;
