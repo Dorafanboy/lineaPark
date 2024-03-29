@@ -23,10 +23,15 @@
 11. Week4LuckyCat - https://layer3.xyz/quests/linea-timeless-wallet
 12. Week5Omnizone - https://layer3./quests/linea-brototype
 13. Week5Battlemon - https://layer3.xyz/quests/linea-battlemon
+14. Week6Zace - https://layer3.xyz/quests/linea-zace
+15. Week6Micro3 - https://layer3.xyz/quests/linea-micro3
+16. Week6FrogWar - https://layer3.xyz/quests/frog-war-404
+17. Week6Bilinear - https://layer3.xyz/quests/lineas-knobs-bilinear
+18. Week6Acg - https://layer3.xyz/quests/linea-acg
 
 Также, софт проходит POH
 1. LevelATrusta - Trusta Group A.
 2. LevelBTrusta - Trusta Group B.
 3. LevelBRubyscore - Rubyscore Group B.
 
-Со всех квестов выходиит 370 LXP.
+Со всех квестов выходиит 515 LXP.
