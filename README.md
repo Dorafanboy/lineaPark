@@ -25,9 +25,11 @@
 13. Week5Battlemon - https://layer3.xyz/quests/linea-battlemon
 14. Week6Zace - https://layer3.xyz/quests/linea-zace
 15. Week6Micro3 - https://layer3.xyz/quests/linea-micro3
-16. Week6FrogWar - https://layer3.xyz/quests/frog-war-404
-17. Week6Bilinear - https://layer3.xyz/quests/lineas-knobs-bilinear
-18. Week6Acg - https://layer3.xyz/quests/linea-acg
+17. Week6FrogWar - https://layer3.xyz/quests/frog-war-404
+18. Week6FrogWarBonus - https://layer3.xyz/quests/frog-war-404
+19. Week6Bilinear - https://layer3.xyz/quests/lineas-knobs-bilinear
+20. Week6Acg - https://layer3.xyz/quests/linea-acg
+21. Week6FrogWarBonusRevokeApproval - Для задания https://layer3.xyz/quests/frog-war-404 дается approve на доступ к NFT кошелька, если использовать isUse = true, то после выполнения этого квеста, approve отменяется
 
 Также, софт проходит POH
 1. LevelATrusta - Trusta Group A.
