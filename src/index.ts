@@ -59,7 +59,7 @@ import { claimFrogWar, claimRebet } from './core/Week6/FrogWar/frogWar';
 import { purchase } from './core/Week6/Micro3/micro3';
 import { zaceCheckIn } from './core/Week6/Zace/zace';
 
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 let account;
 

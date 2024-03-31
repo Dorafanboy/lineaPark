@@ -8,7 +8,6 @@ import ccxt, { okx } from 'ccxt';
 import { addTextMessage } from '../telegram/telegramBot';
 import { linea } from 'viem/chains';
 import * as process from 'process';
-import * as console from 'console';
 
 export async function withdrawAmount(address: Hex) {
     if (OkxData.isUse == false) {
@@ -26,7 +25,7 @@ export async function withdrawAmount(address: Hex) {
     const okxOptions = {
         apiKey: process.env.OKX_API_KEY,
         secret: process.env.OKX_API_SECRET,
-        password: process.env.PassPhrase23!,
+        password: process.env.OKX_API_PASSWORD!,
         enableRateLimit: true,
     };
 
@@ -47,10 +46,6 @@ export async function withdrawAmount(address: Hex) {
 
         const isLessBalance: boolean = Number(parseEther(data.withdrawStart).toString()) > Number(balance.toString());
 
-        console.log(isLessBalance);
-        console.log(Number(parseEther(data.withdrawStart).toString()), Number(balance.toString()));
-
-        return true;
         if (data.withdraw.min != 0 && data.withdraw.max != 0 && isLessBalance) {
             printInfo(`Произвожу вывод с OKX в сеть ${data.networkName}`);
 
