@@ -15,7 +15,7 @@ export class OkxData {
     public static readonly isUse: boolean = false; // использовать ли Okx в софте
     public static readonly bridgeData: IOkx[] = [
         {
-            okxFee: '0.8',
+            okxFee: '0.0002',
             chainName: 'ETH-Linea',
             networkName: 'Linea',
             tokenName: 'ETH',

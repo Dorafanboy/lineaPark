@@ -31,7 +31,6 @@ export async function withdrawAmount(address: Hex) {
 
     const exchange: okx = new ccxt.okx(okxOptions);
 
-    console.log(okxOptions);
     let client;
     for (let i = 0; i < OkxData.bridgeData.length; i++) {
         const data = OkxData.bridgeData[i];
