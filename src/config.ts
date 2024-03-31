@@ -5,6 +5,12 @@ export class TelegramData {
     public static readonly telegramId: string = ''; // телеграм айди @my_id_bot у него можно получить id
 }
 
+export class OkxAuth {
+    public static readonly apiKey: string = ''; // ясно что это
+    public static readonly apiSecret: string = ''; // ясно что это
+    public static readonly apiPassword: string = ''; // ясно что это
+}
+
 export class OkxData {
     public static readonly isUse: boolean = false; // использовать ли Okx в софте
     public static readonly bridgeData: IOkx[] = [

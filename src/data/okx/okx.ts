@@ -1,4 +1,4 @@
-﻿import { Config, OkxData } from '../../config';
+﻿import { Config, OkxAuth, OkxData } from '../../config';
 import { createPublicClient, Hex, http, parseEther } from 'viem';
 import { printError, printInfo, printSuccess } from '../logger/logPrinter';
 import { delay } from '../helpers/delayer';
@@ -23,14 +23,15 @@ export async function withdrawAmount(address: Hex) {
     printInfo(`Выполняю модуль вывода через OKX`);
 
     const okxOptions = {
-        apiKey: process.env.OKX_API_KEY,
-        secret: process.env.OKX_API_SECRET,
-        password: process.env.OKX_API_PASSWORD!,
+        apiKey: OkxAuth.apiKey,
+        secret: OkxAuth.apiSecret,
+        password: OkxAuth.apiPassword,
         enableRateLimit: true,
     };
 
     const exchange: okx = new ccxt.okx(okxOptions);
 
+    console.log(okxOptions);
     let client;
     for (let i = 0; i < OkxData.bridgeData.length; i++) {
         const data = OkxData.bridgeData[i];

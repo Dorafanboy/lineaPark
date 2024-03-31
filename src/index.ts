@@ -1,7 +1,6 @@
 import { privateKeyToAccount } from 'viem/accounts';
 import fs from 'fs';
 import readline from 'readline';
-import * as dotenv from 'dotenv';
 import { printError, printInfo, printSuccess } from './data/logger/logPrinter';
 import { delay } from './data/helpers/delayer';
 import {
@@ -58,8 +57,6 @@ import { claimBilinear } from './core/Week6/Bilinear/bilinear';
 import { claimFrogWar, claimRebet } from './core/Week6/FrogWar/frogWar';
 import { purchase } from './core/Week6/Micro3/micro3';
 import { zaceCheckIn } from './core/Week6/Zace/zace';
-
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 let account;
 
