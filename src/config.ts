@@ -2,7 +2,7 @@
 
 export class TelegramData {
     public static readonly telegramBotId: string = ''; // айди телеграм бота, которому будут отправляться логи
-    public static readonly telegramId: string = ''; // телеграм айди @my_id_bot у него можно получить id
+    public static readonly telegramId: string = '   '; // телеграм айди @my_id_bot у него можно получить id
 }
 
 export class OkxAuth {
@@ -101,7 +101,7 @@ export class Week3GamicHub {
         range: { min: 0.000005, max: 0.000008 },
         fixed: { min: 7, max: 10 },
     }; // сколько eth оборачивать
-}
+} 
 
 export class Week3Dmail {
     // 25 lxp ~0.07$ Send Email from Linea
@@ -111,11 +111,6 @@ export class Week3Dmail {
 
 export class Week4LuckyCat {
     // 20 lxp ~0.3$ We're Up All Nite To Get Lucky Cat
-    public static readonly isUse: boolean = true;
-}
-
-export class Week4z2048 {
-    // 15 lxp ~0.04$ z2048
     public static readonly isUse: boolean = true;
 }
 

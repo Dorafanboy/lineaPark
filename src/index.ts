@@ -22,7 +22,6 @@ import {
     Week3ReadOn,
     Week3SendingMe,
     Week4LuckyCat,
-    Week4z2048,
     Week5Battlemon,
     Week5Omnizone,
     Week6Acg,
@@ -65,7 +64,6 @@ import { zaceCheckIn } from './core/Week6/Zace/zace';
 import { imaginAlryMint } from './core/Week6/ImaginAlry/imaginAlry';
 import { nftAdventureSafeMint } from './core/Week6/NFTAdventure/nftAdventure';
 import { pictographsMintNft, pictographsStakeNFT } from './core/Week2/Pictographs/pictographs';
-import { playNounsClaim } from './core/Week5/PlayNouns/playNouns';
 
 let account;
 
@@ -105,7 +103,6 @@ const questFunctions: { [key: string]: IFunction } = {
     },
     'Week 3 - Metamask Wrap ETH. Into the Gamic Hub': { func: wrapETH, isUse: Week3GamicHub.isUse },
     'Week 4 - Lucky Cat Adopt Cat. We`re Up All Nite To Get Lucky Cat': { func: adoptCat, isUse: Week4LuckyCat.isUse },
-    'Week 5 - Claim. Play Nouns': { func: playNounsClaim, isUse: Week4z2048.isUse }, // поменять все
     'Week 5 - BattleMon Safe Mint. Battlemon': { func: safeMint, isUse: Week5Battlemon.isUse },
     'Week 5 - Omnizone Safe Mint. Omnizone Attraction at Linea Park': {
         func: mintOmnizone,
