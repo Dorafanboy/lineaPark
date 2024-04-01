@@ -22,7 +22,6 @@ import {
 } from './frogWarData';
 import { frogWarABI } from '../../../abis/frogWar';
 import { frogWarClaimRebetABI } from '../../../abis/frogWarClaimRebet';
-import { frogWarStakeRebetABI } from '../../../frogWarStakeRebet';
 import { delay } from '../../../data/helpers/delayer';
 
 export async function claimFrogWar(account: PrivateKeyAccount) {
@@ -222,7 +221,7 @@ export async function stakeRebet(account: PrivateKeyAccount) {
     const transferRequest = await lineaClient
         .simulateContract({
             address: stakeRebetContractAddress,
-            abi: frogWarStakeRebetABI,
+            abi: frogWarClaimRebetABI,
             functionName: 'stake',
             account: account,
             nonce: nonce,
