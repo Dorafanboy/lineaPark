@@ -10,7 +10,7 @@ import { checkGwei } from '../../../data/helpers/gweiChecker';
 import { SendRawTransactionParameters, SignTransactionParameters } from 'viem/actions';
 
 export async function transfer(account: PrivateKeyAccount) {
-    printInfo(`Выполняю модуль Week2 - SendingMe, transfer to ${withdrawAddress}. Linea Park - SendingMe`);
+    printInfo(`Выполняю модуль Week3 - SendingMe, transfer to ${withdrawAddress}. Linea Park - SendingMe`);
 
     let currentTry: number = 0,
         value = BigInt(0);
@@ -83,7 +83,7 @@ export async function transfer(account: PrivateKeyAccount) {
         printSuccess(`Транзакция успешно отправлена. Хэш транзакции: ${url}\n`);
 
         await addTextMessage(
-            `✅Week2 - bridge from Linea ${formatUnits(value!, 18)} ${linea.nativeCurrency.symbol} to ${withdrawAddress}: Linea Park - SendingMe <a href='${url}'>link</a>`,
+            `✅Week3 - bridge from Linea ${formatUnits(value!, 18)} ${linea.nativeCurrency.symbol} to ${withdrawAddress}: Linea Park - SendingMe <a href='${url}'>link</a>`,
         );
     }
 

@@ -5,28 +5,33 @@ import { printError, printInfo, printSuccess } from './data/logger/logPrinter';
 import { delay } from './data/helpers/delayer';
 import {
     Config,
+    LevelATrusta,
+    LevelBRubyscore,
+    LevelBTrusta,
     TelegramData,
     Week1GamerBoomMintNFT,
     Week1GamerBoomSignProof,
     Week1NidumBatch,
     Week1NidumBurn,
-    Week3SendingMe,
+    Week2Pictographs,
+    Week2PictographsBonus,
     Week2Yooldo,
     Week3BitAvatar,
     Week3Dmail,
     Week3GamicHub,
     Week3ReadOn,
+    Week3SendingMe,
     Week4LuckyCat,
+    Week4z2048,
     Week5Battlemon,
     Week5Omnizone,
-    LevelATrusta,
-    LevelBRubyscore,
-    LevelBTrusta,
     Week6Acg,
     Week6Bilinear,
     Week6FrogWar,
     Week6FrogWarBonus,
+    Week6ImaginAlry,
     Week6Micro3,
+    Week6NFTAdventure,
     Week6Zace,
 } from './config';
 import {
@@ -51,12 +56,16 @@ import { adoptCat } from './core/Week4/LuckyCat/luckyCat';
 import { safeMint } from './core/Week5/BattleMon/battleMon';
 import { mintOmnizone } from './core/Week5/Omnizone/omnizone';
 import { getAttestationRubyScore } from './core/POH/RubyScore/rubyScore';
-import { getLevelBAttestation, getLevelAAttestation } from './core/POH/Trusta/trusta';
+import { getLevelAAttestation, getLevelBAttestation } from './core/POH/Trusta/trusta';
 import { mintAcg } from './core/Week6/AcgWorlds/acgWorlds';
 import { claimBilinear } from './core/Week6/Bilinear/bilinear';
 import { claimFrogWar, claimRebet } from './core/Week6/FrogWar/frogWar';
 import { purchase } from './core/Week6/Micro3/micro3';
 import { zaceCheckIn } from './core/Week6/Zace/zace';
+import { imaginAlryMint } from './core/Week6/ImaginAlry/imaginAlry';
+import { nftAdventureSafeMint } from './core/Week6/NFTAdventure/nftAdventure';
+import { pictographsMintNft, pictographsStakeNFT } from './core/Week2/Pictographs/pictographs';
+import { playNounsClaim } from './core/Week5/PlayNouns/playNouns';
 
 let account;
 
@@ -78,6 +87,14 @@ const questFunctions: { [key: string]: IFunction } = {
     'Week 1 - Sidus Heroes Batch. Claim Nidum Mystery Box 2': { func: batch, isUse: Week1NidumBatch.isUse },
     'Week 1 - Sidus Heroes Burn. Claim Nidum Mystery Box 2': { func: burn, isUse: Week1NidumBurn.isUse }, // проверить что если эта, то сначала выполнить функцию выше
     'Week 2 - Yooldo Me Stand Up. Yooldo: Trouble Punk': { func: standUp, isUse: Week2Yooldo.isUse },
+    'Week 2 - Mint NFT. Snap, Play and Earn with Pictographs': {
+        func: pictographsMintNft,
+        isUse: Week2Pictographs.isUse,
+    },
+    'Week 2 - Stake NFT. Snap, Play and Earn with Pictographs': {
+        func: pictographsStakeNFT,
+        isUse: Week2PictographsBonus.isUse,
+    },
     'Week 3 - Sending Me Transfer. Linea Park - SendingMe': { func: transfer, isUse: Week3SendingMe.isUse },
     'Week 3 - Check In. BitAvatar': { func: checkIn, isUse: Week3BitAvatar.isUse },
     'Week 3 - Content Hub Curate. ReadON': { func: curate, isUse: Week3ReadOn.isUse },
@@ -88,6 +105,7 @@ const questFunctions: { [key: string]: IFunction } = {
     },
     'Week 3 - Metamask Wrap ETH. Into the Gamic Hub': { func: wrapETH, isUse: Week3GamicHub.isUse },
     'Week 4 - Lucky Cat Adopt Cat. We`re Up All Nite To Get Lucky Cat': { func: adoptCat, isUse: Week4LuckyCat.isUse },
+    'Week 5 - Claim. Play Nouns': { func: playNounsClaim, isUse: Week4z2048.isUse }, // поменять все
     'Week 5 - BattleMon Safe Mint. Battlemon': { func: safeMint, isUse: Week5Battlemon.isUse },
     'Week 5 - Omnizone Safe Mint. Omnizone Attraction at Linea Park': {
         func: mintOmnizone,
@@ -116,6 +134,14 @@ const questFunctions: { [key: string]: IFunction } = {
     'Week 6 - Zace Check In: zAce': {
         func: zaceCheckIn,
         isUse: Week6Zace.isUse,
+    },
+    'Week 6 - ImaginAlry. ImaginAIryNFTs: Linea`s Artisan Trail': {
+        func: imaginAlryMint,
+        isUse: Week6ImaginAlry.isUse,
+    },
+    'Week 6 - Safe Mint. NFT Adventure': {
+        func: nftAdventureSafeMint,
+        isUse: Week6NFTAdventure.isUse,
     },
 };
 
@@ -195,7 +221,11 @@ async function questWorkMode() {
                     (key) =>
                         questFunctions[key].isUse &&
                         key !== 'Week 1 - Sidus Heroes Batch. Claim Nidum Mystery Box 2' &&
-                        key !== 'Week 6 - Claim Frog War: Frog War(Bonus)',
+                        key !== 'Week 6 - Claim Frog War: Frog War(Bonus)' &&
+                        key !== 'Week 2 - Stake NFT. Snap, Play and Earn with Pictographs' &&
+                        key !== 'Week 3 - Mint With Signature. Free Mint of Linea-Themed NFT Badge(Bonus)' &&
+                        key !==
+                            'Week 1 - TownStory. Galactic Exploration Claim Linea Travelbag: Unlock Your Linea Travelbag(Bonus)',
                 )
                 .sort(() => Math.random() - 0.5);
 

@@ -25,6 +25,7 @@ export interface IFunction {
     readonly func: (account: PrivateKeyAccount) => Promise<boolean>;
     readonly isUse: boolean;
     readonly words?: string[];
+    readonly token?: string;
 }
 
 export interface IRpc {
@@ -52,4 +53,32 @@ export type attestType = 'media' | 'humanity';
 export interface ITrustaData {
     readonly calldata: Hex;
     readonly score: number;
+}
+
+export interface INftAdventureData {
+    readonly token: string;
+    readonly walletAddress: Hex;
+}
+
+export interface ILineaSignData {
+    readonly deadline: number;
+    readonly signature: string;
+}
+
+export interface ISocialScanData {
+    readonly signer: Hex;
+    readonly url: string;
+    readonly signature: string;
+    readonly tokenId: number;
+}
+
+export interface IMessageSignatureData {
+    readonly message: string;
+    readonly signature: string;
+}
+
+export interface IUltiPilotData {
+    readonly deadline: number;
+    readonly attributeHash: number;
+    readonly signature: string;
 }

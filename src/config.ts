@@ -15,12 +15,12 @@ export class OkxData {
     public static readonly isUse: boolean = false; // использовать ли Okx в софте
     public static readonly bridgeData: IOkx[] = [
         {
-            okxFee: '0.0002',
+            okxFee: '0.8',
             chainName: 'ETH-Linea',
             networkName: 'Linea',
             tokenName: 'ETH',
-            withdraw: { min: 0.01, max: 0.015 }, // сколько выводить ETH с биржи
-            randomFixed: { min: 2, max: 4 }, // количество знаков после запятой, если withdraw выпадет рандомно 0.015, а random fixed 2 то будет 0.01
+            withdraw: { min: 0.00005, max: 0.00006 }, // сколько выводить ETH с биржи
+            randomFixed: { min: 5, max: 7 }, // количество знаков после запятой, если withdraw выпадет рандомно 0.015, а random fixed 2 то будет 0.01
             withdrawStart: '0.5',
         },
     ];
@@ -37,7 +37,7 @@ export class Config {
     public static readonly delayBetweenModules: IDelayRange = { min: 0.3, max: 1 }; // задержка между выполнением квестов (в минутах)
     public static readonly delayBetweenGweiCheck: IDelayRange = { min: 0.3, max: 1 }; // задержка перед получением нового гвея (в минутах)
     public static readonly maxGwei = 15; // до какого гвея будет использоваться скрипт
-    public static readonly rpc: IRpc = { chain: 'Linea', url: 'https://rpc.linea.build' }; // менять только содержимое внутри rpcUrl, если рпс не нужно указывать, то оставить ''
+    public static readonly rpc: IRpc = { chain: 'Linea', url: 'https://linea.blockpi.network/v1/rpc/public' }; // менять только содержимое внутри rpcUrl, если рпс не нужно указывать, то оставить ''
 }
 
 export class Week1GamerBoomSignProof {
@@ -62,6 +62,16 @@ export class Week1NidumBurn {
 
 export class Week2Yooldo {
     // 25 lxp ~0.3$ Yooldo: Trouble Punk
+    public static readonly isUse: boolean = true;
+}
+
+export class Week2Pictographs {
+    // 15 lxp ~0.04$ Snap, Play and Earn with Pictographs
+    public static readonly isUse: boolean = true;
+}
+
+export class Week2PictographsBonus {
+    // 25 lxp ~0.03$ Snap, Play and Earn with Pictographs(Bonus)
     public static readonly isUse: boolean = true;
 }
 
@@ -104,6 +114,11 @@ export class Week4LuckyCat {
     public static readonly isUse: boolean = true;
 }
 
+export class Week4z2048 {
+    // 15 lxp ~0.04$ z2048
+    public static readonly isUse: boolean = true;
+}
+
 export class Week5Battlemon {
     // 40 lxp ~0.28$ Battlemon
     public static readonly isUse: boolean = true;
@@ -111,6 +126,11 @@ export class Week5Battlemon {
 
 export class Week5Omnizone {
     // 40 lxp ~0.35$ Omnizone Attraction at Linea Park
+    public static readonly isUse: boolean = true;
+}
+
+export class Week5PlayNouns {
+    // 40 lxp ~0.03$ Play Nouns
     public static readonly isUse: boolean = true;
 }
 
@@ -146,6 +166,16 @@ export class Week6Bilinear {
 
 export class Week6Acg {
     // 25 lxp ~0.4$ ACG WORLDS
+    public static readonly isUse: boolean = true;
+}
+
+export class Week6ImaginAlry {
+    // 20 lxp ~0.24$ ImaginAIryNFTs: Linea's Artisan Trail
+    public static readonly isUse: boolean = true;
+}
+
+export class Week6NFTAdventure {
+    // 15 lxp ~0.02$ NFT Adventure: NFT Adventure
     public static readonly isUse: boolean = true;
 }
 

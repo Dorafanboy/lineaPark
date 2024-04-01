@@ -22,8 +22,8 @@ import {
 } from './frogWarData';
 import { frogWarABI } from '../../../abis/frogWar';
 import { frogWarClaimRebetABI } from '../../../abis/frogWarClaimRebet';
+import { frogWarStakeRebetABI } from '../../../frogWarStakeRebet';
 import { delay } from '../../../data/helpers/delayer';
-import {frogWarStakeRebetABI} from "../../../abis/frogWarStakeRebet";
 
 export async function claimFrogWar(account: PrivateKeyAccount) {
     printInfo(`Выполняю модуль Week6 - Claim. Frog War`);
